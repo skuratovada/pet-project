@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Веб-страница магистранта</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Roboto+Slab:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            'roboto-slab': ['"Roboto Slab"', 'serif'],
+            'inter': ['Inter', 'sans-serif']
+          },
+          colors: {
+            'accent': '#00C4CC',
+            'dark-accent': '#009E9E',
+            'light-bg': '#F8FAFC',
+            'card-bg': '#FFFFFF',
+            'text-primary': '#1E293B',
+            'text-secondary': '#64748B',
+            'border-color': '#E2E8F0'
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+    }
+    .page {
+      display: none;
+    }
+    .page.active {
+      display: block;
+    }
+    .tooltip {
+      position: absolute;
+      background: #1E293B;
+      color: white;
+      padding: 0.5rem 0.75rem;
+      border-radius: 0.375rem;
+      font-size: 0.875rem;
+      z-index: 10;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.2s ease;
+      max-width: 200px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      top: 100%;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+    .skill:hover .tooltip {
+      opacity: 1;
+    }
+  </style>
+</head>
+<body class="bg-light-bg text-text-primary">
+
+  <!-- Header -->
+  <header class="bg-white border-b border-border-color shadow-sm py-4">
+    <div class="container mx-auto px-4 flex flex-col md:flex-row justify-between items-center">
+      <div id="datetime" class="text-lg font-medium text-text-primary"></div>
+      <div class="mt-2 md:mt-0 italic text-center md:text-right text-text-secondary">
+        <em>"Mathematica est ars scientiarum omnium princeps"</em>  
+        <span class="block text-sm">— Математика есть искусство, стоящее во главе всех наук</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- Page 1 -->
+  <section id="page1" class="page active">
+    <main class="container mx-auto px-4 py-8">
+      <div class="max-w-4xl mx-auto bg-card-bg rounded-xl shadow-lg overflow-hidden">
+        <!-- Фото и ФИО -->
+        <div class="md:flex items-start p-6 border-b border-border-color">
+          <div class="md:w-1/3 flex justify-center">
+            <img src="C:\Users\user\Desktop\ОИТ\Сайт\photo.jpg" alt="Скуратова Дарья Александровна" class="rounded-lg w-48 h-48 md:w-56 md:h-56 object-cover shadow-md">
+          </div>
+          <div class="md:w-2/3 p-6">
+            <h1 class="text-3xl md:text-4xl font-bold text-indigo-800 mb-2">Скуратова Дарья Александровна</h1>
+            <h2 class="text-xl text-gray-700 mb-1">Компьютерный анализ данных</h2>
+            <h3 class="text-lg text-gray-600 mb-6">Факультет прикладной математики и информатики</h3>
+          </div>
+        </div>
+
+        <!-- Биография -->
+        <div class="p-6">
+          <div class="bg-indigo-50 p-5 rounded-lg border border-indigo-100">
+            <p class="text-gray-800 leading-relaxed">
+              Дарья Александровна обучалась по специальности «Прикладная математика (научно-производственная деятельность)»
+              на факультете прикладной математики и информатики в период с 2019 по 2023 год, профилизация — теория вероятностей
+              и математическая статистика. В настоящее время обучается в магистратуре по специальности «Прикладная математика и информатика»
+              со специализацией «Компьютерный анализ данных». Параллельно с этим Дарья работает ассистентом кафедры «Высшая математика»
+              факультета информационных технологий и робототехники БНТУ, успешно совмещая работу и учебу на очном отделении.
+              Научными интересами Дарьи являются анализ временных рядов, анализ систем массового обслуживания, многомерный статистический анализ
+              и транспортная логистика, а также разработка оптимизационных моделей для задач планирования маршрутов и распределения ресурсов.
+            </p>
+          </div>
+
+          <div class="mt-8">
+            <button id="toPage2" class="bg-accent hover:bg-dark-accent text-white font-semibold py-3 px-6 rounded-lg transition duration-300 shadow-md hover:shadow-lg transform hover:-translate-y-0.5">
+              Подробнее о научной деятельности →
+            </button>
+          </div>
+        </div>
+      </div>
+    </main>
+  </section>
+
+  <!-- Page 2 -->
+  <section id="page2" class="page">
+    <main class="container mx-auto px-4 py-8">
+      <div class="max-w-4xl mx-auto">
+        <h1 class="text-2xl md:text-3xl font-bold text-indigo-800 mb-8 text-center">Научная и профессиональная деятельность</h1>
+
+        <div class="space-y-10">
+          <!-- Научные интересы -->
+          <div class="bg-white p-6 rounded-xl shadow-md border-l-4 border-indigo-500">
+            <h2 class="text-xl font-bold text-indigo-700 mb-4 flex items-center">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M12.316 3.051a1 1 0 01.633 1.265l-4 12a1 1 0 11-1.898-.632l4-12a1 1 0 011.265-.633zM5.707 6.293a1 1 0 010 1.414L3.414 10l2.293 2.293a1 1 0 11-1.414 1.414l-3-3a1 1 0 010-1.414l3-3a1 1 0 011.414 0zm8.586 0a1 1 0 011.414 0l3 3a1 1 0 010 1.414l-3 3a1 1 0 11-1.414-1.414L16.586 10l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+              </svg>
+              Научные интересы
+            </h2>
+            <ul class="list-disc pl-6 space-y-2 text-gray-700">
+              <li>Прогнозирование временных рядов с применением LSTM и Prophet</li>
+              <li>Моделирование систем массового обслуживания (СМО) в логистике и здравоохранении</li>
+              <li>Многомерный статистический анализ данных с помощью PCA и кластеризации</li>
+              <li>Оптимизация маршрутов доставки с учетом ограничений времени и вместимости</li>
+              <li>Разработка инструментов для автоматической обработки медицинских данных</li>
+            </ul>
+          </div>
+
+          <!-- Навыки с всплывающими подсказками -->
+          <div class="bg-white p-6 rounded-xl shadow-md border-l-4 border-green-500">
+            <h2 class="text-xl font-bold text-green-700 mb-4 flex items-center">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M3 3a1 1 0 000 2v8a2 2 0 002 2h2.586l-1.293 1.293a1 1 0 101.414 1.414L10 15.414l2.293 2.293a1 1 0 001.414-1.414L12.414 15H15a2 2 0 002-2V5a1 1 0 100-2H3zm11.707 4.707a1 1 0 00-1.414-1.414L10 9.586 8.707 8.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+              </svg>
+              Навыки
+            </h2>
+            <div class="flex flex-wrap gap-2 mt-3">
+              <div class="relative skill group">
+                <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-medium cursor-help">Python</span>
+                <div class="tooltip group-hover:opacity-100">
+                  Основной язык программирования для анализа данных, машинного обучения и автоматизации.
+                </div>
+              </div>
+              <div class="relative skill group">
+                <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-medium cursor-help">Pandas</span>
+                <div class="tooltip group-hover:opacity-100">
+                  Библиотека для работы с табличными данными: фильтрация, агрегация, визуализация.
+                </div>
+              </div>
+              <div class="relative skill group">
+                <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-medium cursor-help">Scikit-learn</span>
+                <div class="tooltip group-hover:opacity-100">
+                  Библиотека машинного обучения для классификации, регрессии, кластеризации.
+                </div>
+              </div>
+              <div class="relative skill group">
+                <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-medium cursor-help">SQL</span>
+                <div class="tooltip group-hover:opacity-100">
+                  Язык запросов для работы с реляционными базами данных.
+                </div>
+              </div>
+              <div class="relative skill group">
+                <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-medium cursor-help">Git</span>
+                <div class="tooltip group-hover:opacity-100">
+                  Система контроля версий для совместной разработки и управления кодом.
+                </div>
+              </div>
+              <div class="relative skill group">
+                <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-medium cursor-help">LaTeX</span>
+                <div class="tooltip group-hover:opacity-100">
+                  Система подготовки научных документов, дипломов и публикаций.
+                </div>
+              </div>
+              <div class="relative skill group">
+                <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-medium cursor-help">Matplotlib / Seaborn</span>
+                <div class="tooltip group-hover:opacity-100">
+                  Библиотеки для создания графиков и визуализации данных.
+                </div>
+              </div>
+              <div class="relative skill group">
+                <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-medium cursor-help">Jupyter Notebook</span>
+                <div class="tooltip group-hover:opacity-100">
+                  Интерактивная среда для выполнения кода, визуализации и документирования исследований.
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Сфера работы -->
+          <div class="bg-white p-6 rounded-xl shadow-md border-l-4 border-amber-500">
+            <h2 class="text-xl font-bold text-amber-700 mb-4 flex items-center">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
+                <path d="M9 6a3 3 0 11-6 0 3 3 0 016 0zM17 6a3 3 0 11-6 0 3 3 0 016 0zM12.93 17c.046-.327.07-.66.07-1a6.97 6.97 0 00-1.5-4.33A5 5 0 0119 16v1h-6.07zM6 11a5 5 0 015 5v1H1v-1a5 5 0 015-5z" />
+              </svg>
+              Сфера работы
+            </h2>
+            <p class="text-gray-700 leading-relaxed">
+              В качестве ассистента кафедры «Высшая математика» БНТУ Дарья читает практические занятия по курсам:
+              «Теория вероятностей и математическая статистика», «Математический анализ», «Линейная алгебра и аналитическая геометрия».
+              Принимает участие в разработке учебно-методических материалов, проверке контрольных работ и экзаменов.
+              Также участвует в подготовке студентов к олимпиадам и научным конференциям.
+            </p>
+          </div>
+        </div>
+
+        <div class="mt-10 text-center">
+          <button id="toPage1" class="inline-flex items-center text-indigo-600 hover:text-indigo-800 font-medium">
+            ← Вернуться на главную страницу
+          </button>
+        </div>
+      </div>
+    </main>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-800 text-gray-300 py-6 mt-12">
+    <div class="container mx-auto px-4 text-center">
+      <div class="flex flex-col md:flex-row justify-center items-center space-y-2 md:space-y-0 md:space-x-6">
+        <div class="flex items-center">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
+            <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />
+          </svg>
+          +375 44 516-55-72
+        </div>
+        <div class="flex items-center">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
+            <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" />
+            <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
+          </svg>
+          fpm.skuratovada@gmail.com
+        </div>
+      </div>
+      <p class="mt-4 text-sm">© 2025 Страница подготовлена Скуратовой Д.А.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Обновление времени и даты
+    function updateDateTime() {
+      const now = new Date();
+      const days = ['Воскресенье', 'Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суббота'];
+      const dayName = days[now.getDay()];
+      const dateStr = `${dayName}, ${now.getDate()} ${now.toLocaleDateString('ru-RU', { month: 'long' })} ${now.getFullYear()} г.`;
+      const timeStr = `${String(now.getHours()).padStart(2, '0')}:${String(now.getMinutes()).padStart(2, '0')}`;
+      document.getElementById('datetime').textContent = `${dateStr}, ${timeStr}`;
+    }
+    updateDateTime();
+    setInterval(updateDateTime, 60000);
+
+    // Переключение страниц
+    document.getElementById('toPage2').addEventListener('click', () => {
+      document.getElementById('page1').classList.remove('active');
+      document.getElementById('page2').classList.add('active');
+    });
+
+    document.getElementById('toPage1').addEventListener('click', () => {
+      document.getElementById('page2').classList.remove('active');
+      document.getElementById('page1').classList.add('active');
+    });
+  </script>
+
+</body>
+</html>
+
